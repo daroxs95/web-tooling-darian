@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint . --ext js,mjs",
     "format:fix": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "prepare": "husky"
   },
   "author": "",
   "license": "MIT",
@@ -16,6 +17,16 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.29.1",
+    "husky": "^9.0.7",
+    "lint-staged": "^15.2.1",
     "prettier": "3.2.4"
+  },
+  "lint-staged": {
+    "*.{js, jsx,ts,tsx,mjs}": [
+      "eslint --cache --quiet --fix"
+    ],
+    "*.{json,js,ts,jsx,tsx,html,mjs}": [
+      "prettier --write --ignore-unknown"
+    ]
   }
 }
